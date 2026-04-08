@@ -121,14 +121,14 @@ function generateIndexPage(imageFiles) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>图床 - 图片索引</title>
+    <title>图床</title>
     <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
     <link rel="stylesheet" href="public/styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>图床 - 图片索引</h1>
+            <h1>图床</h1>
             <p>共 ${images.length} 张图片</p>
         </header>
 
