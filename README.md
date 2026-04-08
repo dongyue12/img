@@ -223,4 +223,4 @@ MIT License
 
 ## 联系方式
 
-- GitHub: https://github.com/zhengxiaowai/image-hosting
+- 邮箱: 2436847447@qq.com 
