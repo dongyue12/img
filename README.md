@@ -76,20 +76,29 @@ npm run server
 
 ## 部署到GitHub Pages
 
+### 首次部署配置
+
+**重要：首次部署前必须手动启用GitHub Pages**
+
+1. 访问仓库的Settings页面：`https://github.com/<你的用户名>/<仓库名>/settings/pages`
+2. 在 "Source" 下选择 "GitHub Actions"
+3. 点击 "Save" 保存设置
+4. 等待GitHub Pages服务就绪（通常需要几分钟）
+
 ### 自动部署
 
-项目已配置GitHub Actions工作流，实现自动化部署：
+配置完成后，项目会自动部署：
 
 1. 将代码推送到GitHub仓库的main分支
 2. GitHub Actions会自动触发构建流程
 3. 构建完成后自动部署到GitHub Pages
 4. 也可通过手动触发workflow进行部署
 
-### 手动配置（如需要）
+### 验证部署
 
-1. 在仓库设置中启用GitHub Pages
-2. 确保仓库的Settings > Pages > Source设置为GitHub Actions
-3. 配置自定义域名（可选）
+部署完成后，可以通过以下方式验证：
+- 访问 `https://<你的用户名>.github.io/<仓库名>/`
+- 或访问自定义域名（如果已配置）
 
 ### 自定义域名
 

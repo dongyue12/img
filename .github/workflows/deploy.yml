@@ -32,11 +32,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Enable GitHub Pages
+      - name: Check GitHub Pages status
         run: |
-          gh api             --method PUT             -H "Accept: application/vnd.github.v3+json"             /repos/:owner/:repo/pages             -f source[branch]=main             -f source[path]=/dist || true
-          echo "Waiting for GitHub Pages to be ready..."
-          sleep 10
+          echo "Checking GitHub Pages status..."
+          if gh api /repos/:owner/:repo/pages 2>/dev/null; then
+            echo "✅ GitHub Pages is enabled"
+          else
+            echo "❌ GitHub Pages is not enabled"
+            echo ""
+            echo "Please enable GitHub Pages manually:"
+            echo "1. Go to https://github.com/${{ github.repository }}/settings/pages"
+            echo "2. Under 'Source', select 'GitHub Actions'"
+            echo "3. Click 'Save'"
+            echo ""
+            exit 1
+          fi
         env:
           GH_TOKEN: ${{ github.token }}
 
