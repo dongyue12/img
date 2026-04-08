@@ -1,0 +1,17 @@
+{
+  "name": "image-hosting",
+  "version": "1.0.0",
+  "description": "静态图片管理系统",
+  "scripts": {
+    "build": "node public/js/build.js",
+    "server": "node public/js/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhengxiaowai/image-hosting.git"
+  },
+  "dependencies": {
+    "sharp": "^0.32.6",
+    "express": "^4.18.2"
+  }
+}
