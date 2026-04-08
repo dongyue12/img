@@ -64,6 +64,12 @@ jobs:
 
       - name: Check build output
         run: |
+          echo "Checking dist directory..."
+          ls -la dist/
+          echo ""
+          echo "Directory tree:"
+          find dist -type f
+          echo ""
           if [ ! -d "dist" ]; then
             echo "Error: dist directory not found"
             exit 1
@@ -72,6 +78,7 @@ jobs:
             echo "Error: dist directory is empty"
             exit 1
           fi
+          echo "✅ Build output check passed"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

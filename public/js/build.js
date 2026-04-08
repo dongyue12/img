@@ -87,7 +87,11 @@ async function processImages() {
   console.log(`找到 ${imageFiles.length} 张图片`);
 
   // 并行处理所有图片
-  await Promise.all(imageFiles.map(file => processImage(file)));
+  if (imageFiles.length > 0) {
+    await Promise.all(imageFiles.map(file => processImage(file)));
+  } else {
+    console.log('没有找到图片，将生成空索引页面');
+  }
 
   // 复制public目录到dist/public（排除uploads）
   const distPublicDir = path.join(distDir, 'public');
@@ -125,6 +129,7 @@ function generateIndexPage(imageFiles) {
         </header>
 
         <div class="gallery-section">
+            ${images.length > 0 ? `
             <div class="gallery">
                 ${images.map(img => `
                     <div class="image-card">
@@ -141,6 +146,12 @@ function generateIndexPage(imageFiles) {
                     </div>
                 `).join('')}
             </div>
+            ` : `
+            <div class="empty-state">
+                <p>暂无图片</p>
+                <p>请将图片放入img目录后重新构建</p>
+            </div>
+            `}
         </div>
     </div>
     <script src="public/js/gallery.js"></script>
