@@ -34,7 +34,9 @@ jobs:
 
       - name: Enable GitHub Pages
         run: |
-          gh api repos/:owner/:repo/pages -X PUT -f source[branch]=main -f source[path]=/dist || true
+          gh api             --method PUT             -H "Accept: application/vnd.github.v3+json"             /repos/:owner/:repo/pages             -f source[branch]=main             -f source[path]=/dist || true
+          echo "Waiting for GitHub Pages to be ready..."
+          sleep 10
         env:
           GH_TOKEN: ${{ github.token }}
 
